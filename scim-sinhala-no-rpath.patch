@@ -1,0 +1,20 @@
+--- scim-sinhala-0.1.0/configure.ac.orig	2005-09-26 09:46:24.000000000 +0200
++++ scim-sinhala-0.1.0/configure.ac	2016-04-10 10:06:14.115472687 +0200
+@@ -78,6 +78,7 @@
+ # libtool option to control which symbols are exported
+ # right now, symbols starting with _ are not exported
+ LIBTOOL_EXPORT_OPTIONS='-export-symbols-regex "^[[^_]].*"'
++AC_SUBST([LIBTOOL_EXPORT_OPTIONS])
+ 
+ # Extra args.
+ AC_ARG_ENABLE(debug,
+--- scim-sinhala-0.1.0/src/Makefile.am.orig	2016-04-10 10:06:33.972138520 +0200
++++ scim-sinhala-0.1.0/src/Makefile.am	2016-04-10 10:06:37.952138353 +0200
+@@ -30,7 +30,6 @@
+ 
+ sinhala_la_LDFLAGS = \
+ 	-avoid-version \
+-	-rpath $(moduledir) \
+ 	-module \
+ 	@LIBTOOL_EXPORT_OPTIONS@ \
+ 	@SCIM_LIBS@
